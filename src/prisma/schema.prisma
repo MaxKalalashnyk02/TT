@@ -1,0 +1,25 @@
+// Модель для товарів
+model Product {
+  id          Int       @id @default(autoincrement())
+  sku         String    @unique
+  title       String
+  quantity    Int
+  warehouses  Warehouse[]
+  categories  Category[]
+}
+
+// Модель для категорій товарів
+model Category {
+  id          Int       @id @default(autoincrement())
+  slug        String    @unique
+  title       String
+  products    Product[]
+}
+
+// Модель для складів
+model Warehouse {
+  id          Int       @id @default(autoincrement())
+  uuid        String    @unique
+  title       String
+  products    Product[]
+}
